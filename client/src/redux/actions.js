@@ -1,4 +1,4 @@
-import {FLIP_FLASHCARD, LOAD_WORDS} from "./actionTypes";
+import {FLIP_FLASHCARD, INCREMENT, LOAD_WORDS} from "./actionTypes";
 
 export const startFetchWords = () => ({
     type: LOAD_WORDS.START_FETCH
@@ -14,6 +14,14 @@ export const finishFetch = (data) => ({
     payload: data
 });
 
-export const flipFlashcard = () => ({
+export const flipFlashcard = {
     type: FLIP_FLASHCARD,
-})
+};
+
+export const incrementRightCounter = {
+    type: INCREMENT.RIGHT_COUNTER
+};
+
+export const incrementWrongCounter = {
+    type: INCREMENT.WRONG_COUNTER
+};

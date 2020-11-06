@@ -3,9 +3,9 @@ import rootReducer from "./reducers";
 
 const initState = {
     selectedWordIndex: 0,
-    czech_language: true,
-    rightGuess: 0,
-    wrongGuess: 0,
+    isCardFliped: false,
+    rightCounter: 0,
+    wrongCounter: 0,
     isFetching: false,
     error: null
 };

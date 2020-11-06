@@ -1,28 +1,43 @@
-import {FLIP_FLASHCARD, LOAD_WORDS} from "./actionTypes";
+import {FLIP_FLASHCARD, INCREMENT, LOAD_WORDS} from "./actionTypes";
 
-const initState = {
-    selectedWordId: 0,
-    czech_language: true,
-    rightGuess: 0,
-    wrongGuess: 0,
-    isFetching: false,
-    error: null
-};
+const rootReducer = (state, action) => {
+    const {selectedWordIndex, words, isCardFliped, rightCounter, wrongCounter} = state;
 
-const rootReducer = (state = initState, action) => {
+    const nextWordIndex = () => {
+        if (selectedWordIndex <= (words.length - 2)) {
+            return selectedWordIndex + 1;
+        } else {
+            return 0;
+        }
+    };
+
     switch (action.type) {
         case LOAD_WORDS.START_FETCH:
-            return {...state, ...state.words, isFetching: true};
+            return {...state, ...words, isFetching: true};
         case LOAD_WORDS.FAIL_FETCH:
-            return {...state, ...state.words, isFetching: false, error: action.payload};
+            return {...state, ...words, isFetching: false, error: action.payload};
         case LOAD_WORDS.FINISH_FETCH:
             return {...state, isFetching: false, words: action.payload, error: null};
         case FLIP_FLASHCARD:
-            const cardFliped = !state.czech_language;
-            return {...state, czech_language: cardFliped};
+            return {...state, isCardFliped: !isCardFliped};
+        case INCREMENT.RIGHT_COUNTER:
+            return {
+                ...state,
+                rightCounter: rightCounter + 1,
+                selectedWordIndex: nextWordIndex(),
+                isCardFliped: !isCardFliped
+            };
+        case INCREMENT.WRONG_COUNTER:
+            return {
+                ...state,
+                wrongCounter: wrongCounter + 1,
+                selectedWordIndex: nextWordIndex(),
+                isCardFliped: !isCardFliped
+            };
         default:
             return state;
     }
+
 };
 
 export default rootReducer;

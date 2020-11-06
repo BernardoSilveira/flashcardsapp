@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-//import store from "../redux/store";
 
 import "../css/Flashcard.css";
-import {FLIP_FLASHCARD} from "../redux/actionTypes";
-//import {flipFlashcard} from "../redux/actions";
+import {flipFlashcard} from "../redux/actions";
 
 class Flashcard extends Component {
 
@@ -18,12 +16,12 @@ class Flashcard extends Component {
 }
 
 const mapStateToProps = state => {
-    const {words, selectedWordIndex} = state;
+    const {words, selectedWordIndex, isCardFliped} = state;
     if (words) {
         const selectedWordObject = words[selectedWordIndex];
 
         return {
-            wordAsProp: state.czech_language ? selectedWordObject.czech_word : selectedWordObject.english_word
+            wordAsProp: isCardFliped ? selectedWordObject.english_word : selectedWordObject.czech_word
         }
     } else {
         return {}
@@ -32,7 +30,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-       flipFlashcard: () => dispatch({type: FLIP_FLASHCARD})
+       flipFlashcard: () => dispatch(flipFlashcard)
     }
 };
 
