@@ -11,7 +11,7 @@ const fetchWords = async() =>  {
             .then(res => res.json());
         dispatch(finishFetch(data))
     } catch (e) {
-        dispatch(failFetchWords());
+        dispatch(failFetchWords(e));
     }
 }
 
