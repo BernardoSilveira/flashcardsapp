@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
 import Score from "./components/Score";
 import Flashcard from "./components/Flashcard";
 import AddWord from "./components/AddWord";
@@ -9,8 +9,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Score/>
-                <Flashcard/>
+                <Score />
+                <Flashcard />
                 <RightWrongButtons />
                 <AddWord />
             </div>

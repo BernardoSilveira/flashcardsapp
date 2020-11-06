@@ -1,0 +1,6 @@
+.flashcardDiv {
+    height: 150px;
+    background-color: cadetblue;
+    cursor: pointer;
+    border: 1px slategray;
+}

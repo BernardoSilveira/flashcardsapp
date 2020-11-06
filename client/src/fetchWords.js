@@ -9,7 +9,7 @@ const fetchWords = async() =>  {
     try {
         const data = await fetch('./api/words')
             .then(res => res.json());
-        dispatch(finishFetch(data))
+        dispatch(finishFetch(data));
     } catch (e) {
         dispatch(failFetchWords(e));
     }
