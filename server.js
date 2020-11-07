@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const jsonBodyParser = bodyParser.json();
 
 const {queryDB, addWordDB} = require('./db/database')
-//const addWordDB = require('./db/database');
 
 const PORT = process.env.PORT || 8000;
 
@@ -24,7 +23,6 @@ app.get('/api/words/load', (req, res) => {
 app.post('/api/words/add', jsonBodyParser, (req, res) => {
     res.send("BLAAAHHH");
     addWordDB(req.body.czech_word, req.body.english_word)
-    //console.log(req.body.czech_word);
 });
 
 

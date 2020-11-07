@@ -19,7 +19,6 @@ class AddWord extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const {czechWord, englishWord} = this.state;
-        //console.log(this.state);
         saveWords(czechWord, englishWord);
         this.props.onSubmit(czechWord, englishWord);
     }
