@@ -13,7 +13,7 @@ class RightWrongButtons extends Component {
             );
         } else {
             return (
-                <div></div>
+                <div/>
             )
         }
     }

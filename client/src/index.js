@@ -4,7 +4,7 @@ import './css/index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import store from "./redux/store";
-import fetchWords from "./fetchWords";
+import {fetchWords} from "./handleWords";
 //import reportWebVitals from './reportWebVitals';
 
 /*fetch('/api/words')
@@ -14,7 +14,7 @@ import fetchWords from "./fetchWords";
 
 
 //console.log(store.getState());
-fetchWords()
+fetchWords();
 
 ReactDOM.render(
     <Provider store={store}>

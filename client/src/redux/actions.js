@@ -1,4 +1,4 @@
-import {FLIP_FLASHCARD, INCREMENT, LOAD_WORDS} from "./actionTypes";
+import {ADD_WORD, FLIP_FLASHCARD, INCREMENT, LOAD_WORDS} from "./actionTypes";
 
 export const startFetchWords = () => ({
     type: LOAD_WORDS.START_FETCH
@@ -25,3 +25,9 @@ export const incrementRightCounter = {
 export const incrementWrongCounter = {
     type: INCREMENT.WRONG_COUNTER
 };
+
+export const addWord = (payload1, payload2) => ({
+    type: ADD_WORD,
+    payload1: payload1,
+    payload2: payload2
+});

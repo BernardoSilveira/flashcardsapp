@@ -1,4 +1,4 @@
-import {FLIP_FLASHCARD, INCREMENT, LOAD_WORDS} from "./actionTypes";
+import {ADD_WORD, FLIP_FLASHCARD, INCREMENT, LOAD_WORDS} from "./actionTypes";
 
 const rootReducer = (state, action) => {
     const {selectedWordIndex, words, isCardFliped, rightCounter, wrongCounter} = state;
@@ -34,6 +34,15 @@ const rootReducer = (state, action) => {
                 selectedWordIndex: nextWordIndex(),
                 isCardFliped: !isCardFliped
             };
+        case ADD_WORD:
+            return {
+                ...state,
+                words: words.concat({
+                    word_id: words.length,
+                    czech_word: action.payload1,
+                    english_word: action.payload2
+                })
+            }
         default:
             return state;
     }
